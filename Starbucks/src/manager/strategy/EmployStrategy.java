@@ -16,7 +16,7 @@ public class EmployStrategy {
 	private static ArrayList<Worker> employeeList = new ArrayList<Worker>();
 
 	
-	public static void initEmployeeList() {
+	public static void initEmployeeInfo() {
 		readStrategyFromFile();
 		for (int i = 0; i < juniorNum; i++) {
 			employeeList.add(new JuniorWorker());

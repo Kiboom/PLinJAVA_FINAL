@@ -11,31 +11,33 @@ public abstract class Decorator extends Coffee{
 		this.coffee = coffee;				
 	}
 	
-	/* Getter Setter */
+	/* Getter */
+	public int getTotalDecoPrice() {
+		return totalDecoPrice;
+	}
 	public String getTotalDecoName() {
 		return totalDecoName;
-	}
-	public void addTotalDecoName(String name) {
-		totalDecoName = totalDecoName + name;
 	}
 	public long getTotalDecoBrewingTime() {
 		return totalDecoBrewingTime;
 	}
-	public void addTotalDecoBrewingTime(long time) {
-		totalDecoBrewingTime += time;
-	}
-	public int getTotalDecoPrice() {
-		return totalDecoPrice;
-	}
+
+	/* Setter (하위 데코레이션 정보는 여기서 한번에 합친 다음, 최상위 클래스인 Coffee로 넘김) */
 	public void addTotalDecoPrice(int price) {
 		totalDecoPrice += price;
+	}
+	public void addTotalDecoName(String name) {
+		totalDecoName = totalDecoName + name;
+	}
+	public void addTotalDecoBrewingTime(long time) {
+		totalDecoBrewingTime += time;
 	}
 
 	@Override
 	public void brewing(){
 		coffee.brewing();
-		super.addTotalName(coffee.getTotalName());
 		super.addTotalName(totalDecoName);
+		super.addTotalName(coffee.getTotalName());
 		super.addTotalPrice(coffee.getTotalPrice() + totalDecoPrice);
 		super.addTotalBrewingTime(coffee.getTotalBrewingTime() + totalDecoBrewingTime);
 	}

@@ -15,7 +15,7 @@ public class PriceStrategy {
 	private static int americano, kenya, latte, mocha;
 	private static Map<String, Integer> menu = new HashMap<String, Integer>();
 
-	public static void initPriceList() {
+	public static void initPriceInfo() {
 		readStrategyFromFile();
 		setPrice();
 		printPrice();

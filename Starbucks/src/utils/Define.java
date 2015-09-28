@@ -4,8 +4,11 @@ public class Define {
 	/* Customer */
 	public static final int BASE_COFFEES = 2;
 	public static final int DECORATIONS = 3;
+	public static final int AMERICANO = 0;
+	public static final int KENYA = 1;
 	public static final int NO_DECO = 0;
 	public static final int LATTE = 1;
+	public static final int MOCHA = 2;
 	
 	/* WaitingLine */
 	public static final long COME_INTERVAL = 20;

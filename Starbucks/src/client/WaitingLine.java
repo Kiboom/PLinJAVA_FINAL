@@ -27,6 +27,7 @@ public class WaitingLine {
 	public void customerOutSimulator(){
 		intervalTimer.set("deleteCustomer", (long)0, (long)OUT_INTERVAL); // 50ms(5분)마다 지친 대기자 이탈
 	}
+	
 	public void orderingSimulator() {
 		for(Customer customer : customerQueue){
 			customer.start();

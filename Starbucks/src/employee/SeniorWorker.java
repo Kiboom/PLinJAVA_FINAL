@@ -9,21 +9,21 @@ public class SeniorWorker extends Worker{
 	private String level = "Senior Worker";
 
 	/* Getter Setter */
+	@Override
+	public String getLevel() {
+		return level;
+	}
 	public int getSalaryPerHour() {
 		return salaryPerHour;
 	}
 	public static void setSalaryPerHour(int salary) {
 		SeniorWorker.salaryPerHour = salary; 
 	}
-	@Override
-	public String getLevel() {
-		return level;
-	}
 
 	@Override
 	public void brewing(Coffee coffee) {
 		this.coffee = coffee;
 		this.coffee.brewing();
-		Sales.setTotalSales(coffee.getTotalPrice());
+		Sales.addTotalSales(coffee.getTotalPrice());
 	}
 }

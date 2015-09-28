@@ -9,6 +9,10 @@ public class MiddleWorker extends Worker{
 	private String level = "Middle Worker";
 
 	/* Getter Setter */
+	@Override
+	public String getLevel() {
+		return level;
+	}
 	public int getSalaryPerHour() {
 		return salaryPerHour;
 	}
@@ -18,15 +22,11 @@ public class MiddleWorker extends Worker{
 	public void setCoffee(Coffee coffee){
 		this.coffee = coffee;
 	}
-	@Override
-	public String getLevel() {
-		return level;
-	}
 
 	@Override
 	public void brewing(Coffee coffee) {
 		this.coffee = coffee;
 		this.coffee.brewing();
-		Sales.setTotalSales(coffee.getTotalPrice());
+		Sales.addTotalSales(coffee.getTotalPrice());
 	}
 }

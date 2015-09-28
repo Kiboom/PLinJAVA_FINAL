@@ -6,29 +6,35 @@ public abstract class Coffee {
 	private int totalPrice=0;
 	private long totalBrewingTime=0;
 	
-	/* Getter Setter */
+	
+	public abstract void brewing();
+
+	
+	/* Getter */
+	public int getTotalPrice() {
+		return totalPrice;
+	}
 	public String getTotalName() {
 		return totalName;
-	}
-	public void addTotalName(String name) {
-		if(name.equals("Americano") || name.equals("Kenya")){
-			totalName = name;
-			return;
-		}
-		totalName = totalName + name;
 	}
 	public long getTotalBrewingTime() {
 		return totalBrewingTime;
 	}
-	public void addTotalBrewingTime(long time) {
-		totalBrewingTime += time;
-	}
-	public int getTotalPrice() {
-		return totalPrice;
-	}
+	
+	
+	/* Setter (커피를 구성하는 각각의 요소들이 가진 정보들을 한군데에 합침) */
 	public void addTotalPrice(int price) {
 		totalPrice += price;
 	}
+	public void addTotalName(String name) {
+		if(name.startsWith("Americano") || name.startsWith("Kenya")){
+			totalName = name;
+			return;
+		}
+		totalName = totalName + name;	// 베이스 커피를 먼저 깔고, 데코레이터는 그 위에 추가하는 식
+	}
+	public void addTotalBrewingTime(long time) {
+		totalBrewingTime += time;
+	}
 	
-	public abstract void brewing();
 }

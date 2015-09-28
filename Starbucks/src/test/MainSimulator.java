@@ -20,32 +20,31 @@ public class MainSimulator {
 	private static StopWatch stopWatch = new StopWatch();
 	private MainTimer mainTimer = MainTimer.getInstance();
 	private static final Logger logger = LoggerFactory.getLogger(MainSimulator.class);
-
-	public void simulatorInit(){
-		System.out.println("시뮬레이터 초기화 시작...");
-		PriceStrategy.initPriceList();
-		EmployStrategy.initEmployeeList();
-		waitingLine.init(INITIAL_CUSTOMERS);
-		mainTimer.init(SIMULATING_TIME);			// 시뮬레이터 진행 시간 설정
-	}
 	
 	public void start() {
 		simulatorInit();
 		System.out.println("\n\n--------------------------------------------------------------\n");
 		System.out.println("\n[Starbucks Simulator Start!]\n");
-		stopWatch.start(); 
 		mainTimer.start();
+		stopWatch.start(); 
 		waitingLine.orderingSimulator();
 		//waitingLine.customerOutSimulator();		// 주기적으로 손님이 증가하는 시뮬레이터
 		//waitingLine.customerComeSimulator();		// 주기적으로 손님이 이탈하는 시뮬레이터
 	}
 
+	public void simulatorInit(){
+		System.out.println("시뮬레이터 초기화 시작...");
+		PriceStrategy.initPriceInfo();
+		EmployStrategy.initEmployeeInfo();
+		waitingLine.init(INITIAL_CUSTOMERS);
+		mainTimer.init(SIMULATING_TIME);			// 시뮬레이터 진행 시간 설정
+	}
+	
 	public static void end() {
+		System.out.println("\n\n--------------------------------------------------------------\n\n[Starbucks Simulator Finished!]\n");
+		
 		stopWatch.stop();
 		stopAllThreads();
-		
-		System.out.println("\n\n--------------------------------------------------------------\n");
-		System.out.println("\n[Starbucks Simulator Finished!]\n");
 		
 		int totalSales = Sales.getTotalSales();
 		int totalSalary = Salary.calculateSalary(); 
