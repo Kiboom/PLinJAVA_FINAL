@@ -21,8 +21,8 @@ public class Kenya extends Coffee{
 	
 	@Override
 	public void brewing() {
-		super.addTotalBrewingTime(brewingTime);
-		super.addTotalPrice(price);
-		super.addTotalName(name);
+		super.sumTotalBrewingTime(brewingTime);
+		super.sumTotalPrice(price);
+		super.sumTotalName(name);
 	}
 }

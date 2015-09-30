@@ -16,9 +16,9 @@ public class LatteCoffee extends Decorator{
 	
 	@Override
 	public void brewing() {
-		super.addTotalDecoName(name);
-		super.addTotalDecoPrice(decoPrice);
-		super.addTotalDecoBrewingTime(decoBrewingTime);
+		super.sumTotalDecoName(name);
+		super.sumTotalDecoPrice(decoPrice);
+		super.sumTotalDecoBrewingTime(decoBrewingTime);
 		super.brewing();		
 	}
 }

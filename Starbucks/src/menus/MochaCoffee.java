@@ -15,9 +15,9 @@ public class MochaCoffee extends Decorator{
 	
 	@Override
 	public void brewing() {
-		super.addTotalDecoName(decoName);
-		super.addTotalDecoPrice(decoPrice);
-		super.addTotalDecoBrewingTime(decoBrewingTime);
+		super.sumTotalDecoName(decoName);
+		super.sumTotalDecoPrice(decoPrice);
+		super.sumTotalDecoBrewingTime(decoBrewingTime);
 		super.brewing();		
 	}
 }

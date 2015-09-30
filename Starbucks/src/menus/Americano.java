@@ -21,8 +21,8 @@ public class Americano extends Coffee{
 	
 	@Override
 	public void brewing() {
-		super.addTotalName(name);
-		super.addTotalPrice(price);
-		super.addTotalBrewingTime(brewingTime);
+		super.sumTotalName(name);
+		super.sumTotalPrice(price);
+		super.sumTotalBrewingTime(brewingTime);
 	}
 }
